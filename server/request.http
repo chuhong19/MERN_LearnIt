@@ -2,8 +2,8 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "admin"
+    "username": "admin2",
+    "password": "admin2"
 }
 
 ###
@@ -15,3 +15,39 @@ Content-Type: application/json
     "username": "admin",
     "password": "admin"
 }
+
+###
+
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VlNmE0MDYyZDYxNmJlNDY0YmQ1N2MiLCJpYXQiOjE2NzY1NjkxNTJ9.xH-DSJ9Xj_xuZ5qA4VtyWFZ9YbbJpAHOXgNKQ3SY_j8
+
+{
+    "title": "React",
+    "description": "React",
+    "url": "react.com",
+    "status": "LEARNING" 
+}
+
+###
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VkY2RhMWM1ZDc5M2RiMTY4NjU2MjAiLCJpYXQiOjE2NzY2MjQ1NTN9.yriLUjnmhWSEkMHbtO0kQ6bMY9zLiGZz-48fJNC55Mo 
+
+###
+
+PUT http://localhost:5000/api/posts/63ee69e7a264589a352e1a2a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VkY2RhMWM1ZDc5M2RiMTY4NjU2MjAiLCJpYXQiOjE2NzY2MjU1Njl9.1R5iTSWRCLx6EnUpnWxrWoo0v9U1_4vxO9dV4lgH9Is
+
+{
+    "title": "Vue",
+    "description": "Vueeeeee",
+    "url": "vue.org",
+    "status": "LEARNING"
+}
+
+###
+
+DELETE http://localhost:5000/api/posts/63ee69e7a264589a352e1a2a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VkY2RhMWM1ZDc5M2RiMTY4NjU2MjAiLCJpYXQiOjE2NzY2MjU1Njl9.1R5iTSWRCLx6EnUpnWxrWoo0v9U1_4vxO9dV4lgH9Is
+
