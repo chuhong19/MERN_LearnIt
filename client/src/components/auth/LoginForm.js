@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const LoginForm = () => {
   return (
     <>
-      <Form>
+      <Form className='my-4'>
         <Form.Group>
           <Form.Control
             type='text'
