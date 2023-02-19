@@ -16,20 +16,24 @@ const AuthContextProvider = ({ children }) => {
 
   // Authenticate user
   const loadUser = async () => {
+    console.log('Loading user');
     if (localStorage[LOCAL_STORAGE_TOKEN_NAME]) {
+      console.log('Set authentication token');
       setAuthToken(localStorage[LOCAL_STORAGE_TOKEN_NAME]);
     }
-
     try {
+      console.log('try 1');
       const response = await axios.get(`${apiUrl}/auth`);
-      console.log('RESPONSE: ' + JSON.stringify(response));
+      console.log('response: ', response);
       if (response.data.success) {
+        console.log('set auth 1');
         dispatch({
           type: 'SET_AUTH',
           payload: { isAuthenticated: true, user: response.data.user },
         });
       }
     } catch (error) {
+      console.log('set auth 2');
       localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
       setAuthToken(null);
       dispatch({
@@ -47,7 +51,9 @@ const AuthContextProvider = ({ children }) => {
   const loginUser = async (userForm) => {
     try {
       const response = await axios.post(`${apiUrl}/auth/login`, userForm);
-      console.log('Response: ' + response);
+      console.log('AuthLoading: ' + authState.authLoading);
+      console.log('IsAuthenticated: ' + authState.isAuthenticated);
+      console.log('Response: ' + { response });
       if (response.data.success)
         localStorage.setItem(
           LOCAL_STORAGE_TOKEN_NAME,

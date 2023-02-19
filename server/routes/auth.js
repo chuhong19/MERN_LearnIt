@@ -12,14 +12,20 @@ const User = require('../models/User');
 // @access public
 
 router.get('/', verifyToken, async (req, res) => {
+  console.log('GET api/');
   try {
-    const user = await User.findById(req.userId).select('-password')
-    if (!user) return res.status(400).json({ success: false, message: 'User not found' })
+    const user = await User.findById(req.userId).select('-password');
+    console.log('Get user', user);
+    if (!user)
+      return res
+        .status(400)
+        .json({ success: false, message: 'User not found' });
+    res.json({ success: true, user });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
-})
+});
 
 // @route POST api/auth/register
 // @desc Register a user
