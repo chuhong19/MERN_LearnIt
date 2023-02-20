@@ -60,6 +60,8 @@ const AuthContextProvider = ({ children }) => {
           response.data.accessToken
         );
 
+      await loadUser();
+
       return response.data;
     } catch (error) {
       console.log('Error: ' + error);
