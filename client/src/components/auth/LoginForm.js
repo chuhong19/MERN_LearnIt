@@ -3,9 +3,10 @@ import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import AlertMessage from '../layout/AlertMessage';
 
 const LoginForm = () => {
-  // Context
+  // Context 
   const { loginUser } = useContext(AuthContext);
 
   // Router
@@ -16,6 +17,8 @@ const LoginForm = () => {
     username: '',
     password: '',
   });
+
+  const [alert, setAlert] = useState(null);
 
   const { username, password } = loginForm;
 
@@ -28,6 +31,9 @@ const LoginForm = () => {
       const loginData = await loginUser(loginForm);
       if (loginData.success) {
         //navigate('/dashboard');
+      } else {
+        setAlert({ type: 'danger', message: loginData.message });
+        setTimeout(() => setAlert(null), 5000)
       }
     } catch (error) {
       console.log(error);
@@ -37,6 +43,7 @@ const LoginForm = () => {
   return (
     <>
       <Form className='my-4' onSubmit={login}>
+        <AlertMessage info={alert} />
         <Form.Group>
           <Form.Control
             type='text'
