@@ -7,7 +7,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Auth = (props) => {
   const { authRoute } = props;
-  
+
   const {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
@@ -20,9 +20,8 @@ const Auth = (props) => {
         <Spinner animation='border' variant='info' />
       </div>
     );
-  } else if (isAuthenticated) return <Navigate to='/dashboard' />
+  } else if (isAuthenticated) return <Navigate to='/dashboard' />;
   else
-  
     body = (
       <>
         {authRoute === 'login' && <LoginForm />}
