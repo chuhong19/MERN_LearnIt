@@ -2,6 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import Spinner from 'react-bootstrap/Spinner';
+import NavbarMenu from '../layout/NavbarMenu';
 
 const ProtectedRoute = () => {
   const {
@@ -14,7 +15,14 @@ const ProtectedRoute = () => {
         <Spinner animation='border' variant='info' />
       </div>
     );
-  return isAuthenticated ? <Outlet /> : <Navigate to='/login' />;
+  return isAuthenticated ? (
+    <>
+      <NavbarMenu />
+      <Outlet />
+    </>
+  ) : (
+    <Navigate to='/login' />
+  );
 };
 
 export default ProtectedRoute;
