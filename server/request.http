@@ -23,9 +23,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VlNmE0MDYyZDYxNmJlNDY0YmQ1N2MiLCJpYXQiOjE2NzY1NjkxNTJ9.xH-DSJ9Xj_xuZ5qA4VtyWFZ9YbbJpAHOXgNKQ3SY_j8
 
 {
-    "title": "React",
-    "description": "React",
-    "url": "react.com",
+    "title": "React2",
+    "description": "React2",
+    "url": "react2.com",
     "status": "LEARNING" 
 }
 
