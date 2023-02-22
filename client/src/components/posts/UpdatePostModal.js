@@ -42,7 +42,7 @@ const UpdatePostModal = () => {
   // };
 
   return (
-    <Modal show={showUpdatePostModal} animation={false}>
+    <Modal show={showUpdatePostModal} animation={false} onHide={closeDialog}>
       <Modal.Header closeButton>
         <Modal.Title>Making progress?</Modal.Title>
       </Modal.Header>
@@ -99,7 +99,7 @@ const UpdatePostModal = () => {
             Cancel
           </Button>
           <Button variant='primary' type='submit'>
-            LearnIt!
+            Apply
           </Button>
         </Modal.Footer>
       </Form>
