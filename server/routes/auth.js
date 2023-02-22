@@ -12,10 +12,8 @@ const User = require('../models/User');
 // @access public
 
 router.get('/', verifyToken, async (req, res) => {
-  console.log('GET api/');
   try {
     const user = await User.findById(req.userId).select('-password');
-    console.log('Get user', user);
     if (!user)
       return res
         .status(400)

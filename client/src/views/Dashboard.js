@@ -6,10 +6,12 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
+import Toast from 'react-bootstrap/esm/Toast';
 import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 import Tooltip from 'react-bootstrap/esm/Tooltip';
 import SinglePost from '../components/posts/SinglePost';
 import AddPostModal from '../components/posts/AddPostModal';
+import UpdatePostModal from '../components/posts/UpdatePostModal';
 import addIcon from '../assets/plus-circle-fill.svg';
 
 const Dashboard = () => {
@@ -22,9 +24,11 @@ const Dashboard = () => {
   } = useContext(AuthContext);
 
   const {
-    postState: { posts, postsLoading },
+    postState: { post, posts, postsLoading },
     getPosts,
     setShowAddPostModal,
+    showToast: { show, message, type },
+    setShowToast,
   } = useContext(PostContext);
 
   // Start: get all posts
@@ -51,7 +55,12 @@ const Dashboard = () => {
             <Card.Text>
               Click the button below to track your first skill to learn
             </Card.Text>
-            <Button variant='primary'>Learn now</Button>
+            <Button
+              variant='primary'
+              onClick={setShowAddPostModal.bind(this, true)}
+            >
+              Learn now
+            </Button>
           </Card.Body>
         </Card>
       </>
@@ -86,6 +95,24 @@ const Dashboard = () => {
     <>
       {body}
       <AddPostModal />
+      {post !== null && <UpdatePostModal />}
+      {/* After post is added, show toast */}
+      <Toast
+        show={show}
+        style={{ position: 'fixed', top: '20%', right: '10px' }}
+        className={`bg-${type} text-white`}
+        onClose={setShowToast.bind(this, {
+          show: false,
+          message: '',
+          type: null,
+        })}
+        delay={3000}
+        autohide
+      >
+        <Toast.Body>
+          <strong>{message}</strong>
+        </Toast.Body>
+      </Toast>
     </>
   );
 };

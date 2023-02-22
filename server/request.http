@@ -12,8 +12,8 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "admin"
+    "username": "admin2",
+    "password": "admin2"
 }
 
 ###
@@ -35,9 +35,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VkY
 
 ###
 
-PUT http://localhost:5000/api/posts/63ee69e7a264589a352e1a2a
+PUT http://localhost:5000/api/posts/63f5a202b6d28f3fc614ce55
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VkY2RhMWM1ZDc5M2RiMTY4NjU2MjAiLCJpYXQiOjE2NzY2MjU1Njl9.1R5iTSWRCLx6EnUpnWxrWoo0v9U1_4vxO9dV4lgH9Is
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2VlNmE0MDYyZDYxNmJlNDY0YmQ1N2MiLCJpYXQiOjE2NzcwNDU1NTR9.PszlkcHc2Els28wNVrtBtjhtFXgBfqCNreZm93fN9TU
 
 {
     "title": "Vue",

@@ -57,7 +57,6 @@ router.post('/', verifyToken, async (req, res) => {
 
 router.put('/:id', verifyToken, async (req, res) => {
   const { title, description, url, status } = req.body;
-
   // Simple validation
   if (!title)
     return res
@@ -72,8 +71,10 @@ router.put('/:id', verifyToken, async (req, res) => {
       status: status || 'TO LEARN',
     };
 
-    const postUpdateCondition = { _id: req.params.id, user: req.userId };
+    console.log('Updated post:' , updatedPost)
 
+    const postUpdateCondition = { _id: req.params.id, user: req.userId }
+    console.log('Post update condition: ' , postUpdateCondition)
     updatedPost = await Post.findOneAndUpdate(
       postUpdateCondition,
       updatedPost,
@@ -94,7 +95,7 @@ router.put('/:id', verifyToken, async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ success: false, message: 'Internal server error' });
+    res.status(500).json({ success: false, message: 'Internal server error 2' });
   }
 });
 
