@@ -70,11 +70,7 @@ router.put('/:id', verifyToken, async (req, res) => {
       url: (url.startsWith('https://') ? url : `https://${url}`) || '',
       status: status || 'TO LEARN',
     };
-
-    console.log('Updated post:' , updatedPost)
-
     const postUpdateCondition = { _id: req.params.id, user: req.userId }
-    console.log('Post update condition: ' , postUpdateCondition)
     updatedPost = await Post.findOneAndUpdate(
       postUpdateCondition,
       updatedPost,

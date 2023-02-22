@@ -76,9 +76,8 @@ const PostContextProvider = ({ children }) => {
   // Update post
   const updatePost = async (updatedPost) => {
     try {
-      console.log('Updating post');
       const response = await axios.put(
-        `${apiUrl}/posts/${updatePost._id}`,
+        `${apiUrl}/posts/${updatedPost._id}`,
         updatedPost
       );
       if (response.data.success)
